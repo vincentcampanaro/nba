@@ -1,22 +1,16 @@
 function showSection(sectionId) {
-    document.querySelectorAll('.section, .subsection').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('visible');
         section.style.display = 'none';
     });
 
-    setTimeout(() => {
-        const selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-            selectedSection.style.display = 'block';
-            Array.from(selectedSection.children).forEach(subsection => {
-                subsection.style.opacity = '1';
-                subsection.style.transform = 'translateY(0)';
-            });
-        } else {
-            console.error('Section not found:', sectionId);
-        }
-    }, 500);
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add('visible');
+        selectedSection.style.display = 'block';
+    } else {
+        console.error('Section not found:', sectionId);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Grid container element #myGrid not found.');
         return;
     }
+
     const gridOptions = {
         columnDefs: [
             { headerName: 'ID', field: 'id' },
