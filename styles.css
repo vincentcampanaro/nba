@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    transition: background-color 0.5s ease;
 }
 
 .navbar {
@@ -11,6 +12,7 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 0.5em 0;
+    transition: background-color 0.5s ease;
 }
 
 .navbar a {
@@ -19,6 +21,7 @@ body {
     padding: 10px 15px;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .navbar a:hover {
@@ -31,6 +34,14 @@ body {
     border: 1px solid #ddd;
     max-width: 90%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px);
+}
+
+.section.visible, .subsection.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .image img {
@@ -38,13 +49,14 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
+    transition: opacity 0.5s ease;
 }
 
 .nba-logo {
-            max-width: 100px; /* Adjusts the width of the logo */
-            height: auto;
-            display: block;
-            margin: 0 auto;
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 header, footer {
@@ -52,6 +64,7 @@ header, footer {
     color: #fff;
     text-align: center;
     padding: 1em;
+    transition: background-color 0.5s ease;
 }
 
 header {
