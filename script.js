@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     season: columns[21]
                 };
             });
-            new agGrid.Grid(gridDiv, gridOptions);
             gridOptions.api.setRowData(gridData);
+            new agGrid.Grid(gridDiv, gridOptions);
         });
 });
