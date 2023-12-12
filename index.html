@@ -4,71 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Analytics</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
-    <style>
-        body {
-            font-family: 'Georgia', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e5e1e1;
-        }
-
-        .navbar {
-            background-color: #000;
-            overflow: hidden;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .section {
-            display: none;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        .subsection {
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            padding: 20px;
-        }
-
-        .image img {
-            max-width: 40%;
-            height: auto;
-        }
-
-        header {
-            background-color: #000fff;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-            position: relative;
-        }
-
-        h1 {
-            color: rgb(255, 255, 255);
-            font-size: 40px;
-        }
-
-        footer {
-            background-color: #ff1900;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 <body onload="showSection('home')">
     <header>
