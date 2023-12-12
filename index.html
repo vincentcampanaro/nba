@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
     <style>
         body {
             font-family: 'Georgia', sans-serif;
@@ -141,7 +142,7 @@
                 Although still possible, the analysis is now geared towards identifying trends within the sport for predictive purposes. Please follow the navigation
                 on the side for more!
             </p>
-            <div id="myGrid" style="height: 600px; width:100%;" class="ag-theme-quartz"></div>
+            <div id="myGrid" class="ag-theme-quartz" style="height: 600px; width:100%;"></div>
         </div>
     </div>
     <div class="side-drawer" id="sideDrawer">
@@ -158,12 +159,5 @@
     <footer>
         &copy; 2023 NBA Analytics. All rights reserved.
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
-    <script>
-        function toggleMenu() {
-            var sideDrawer = document.getElementById('sideDrawer');
-            sideDrawer.classList.toggle('open');
-        }
-    </script>
 </body>
 </html>
