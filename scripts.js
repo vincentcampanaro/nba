@@ -4,13 +4,19 @@ function showSection(sectionId) {
         section.style.display = 'none';
     });
 
-    const selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.classList.add('visible');
-        selectedSection.style.display = 'block';
-    } else {
-        console.error('Section not found:', sectionId);
-    }
+    setTimeout(() => {
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.classList.add('visible');
+            selectedSection.style.display = 'block';
+            const subsections = selectedSection.querySelectorAll('.subsection');
+            subsections.forEach(subsection => {
+                subsection.classList.add('visible');
+            });
+        } else {
+            console.error('Section not found:', sectionId);
+        }
+    }, 10);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
