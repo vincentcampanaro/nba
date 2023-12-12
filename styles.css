@@ -34,8 +34,10 @@ body {
     border: 1px solid #ddd;
     max-width: 90%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
+    opacity: 0;
     transform: translateY(20px);
+    display: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .subsection {
