@@ -40,13 +40,14 @@ body {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.subsection {
-    transition-delay: 0.5s;
-}
-
 .section.visible, .subsection.visible {
     opacity: 1;
     transform: translateY(0);
+    display: block;
+}
+
+.subsection {
+    transition-delay: 0.5s;
 }
 
 .image img {
