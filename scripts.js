@@ -1,5 +1,5 @@
 function showSection(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
+    document.querySelectorAll('.section, .subsection').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
         section.style.display = 'none';
@@ -9,8 +9,10 @@ function showSection(sectionId) {
         const selectedSection = document.getElementById(sectionId);
         if (selectedSection) {
             selectedSection.style.display = 'block';
-            selectedSection.style.opacity = '1';
-            selectedSection.style.transform = 'translateY(0)';
+            Array.from(selectedSection.children).forEach(subsection => {
+                subsection.style.opacity = '1';
+                subsection.style.transform = 'translateY(0)';
+            });
         } else {
             console.error('Section not found:', sectionId);
         }
