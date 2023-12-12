@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
         domLayout: 'autoHeight'
     };
 
+    const grid = new agGrid.Grid(gridDiv, gridOptions);
+
     fetch('all_seasons.csv')
         .then(response => {
             if (!response.ok) {
@@ -75,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     };
                 });
                 gridOptions.api.setRowData(gridData);
-                new agGrid.Grid(gridDiv, gridOptions);
             } catch (error) {
                 console.error('Error processing CSV data:', error);
             }
