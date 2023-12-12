@@ -1,3 +1,18 @@
+function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Show the selected section
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+    } else {
+        console.error('Section not found:', sectionId);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const gridDiv = document.querySelector('#myGrid');
     if (!gridDiv) {
