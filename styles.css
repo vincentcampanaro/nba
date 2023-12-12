@@ -26,7 +26,6 @@ body {
 }
 
 .section, .subsection {
-    display: none;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -39,6 +38,13 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+.nba-logo {
+            max-width: 100px; /* Adjusts the width of the logo */
+            height: auto;
+            display: block;
+            margin: 0 auto;
 }
 
 header, footer {
