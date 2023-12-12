@@ -1,13 +1,9 @@
 function showSection(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
+    document.querySelectorAll('.section, .subsection').forEach(section => {
         section.classList.remove('visible');
     });
 
     setTimeout(() => {
-        document.querySelectorAll('.subsection').forEach(subsection => {
-            subsection.classList.remove('visible');
-        });
-
         const selectedSection = document.getElementById(sectionId);
         if (selectedSection) {
             selectedSection.classList.add('visible');
@@ -21,6 +17,13 @@ function showSection(sectionId) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', function() {
+            const sectionId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            showSection(sectionId);
+        });
+    });
+
     const gridDiv = document.querySelector('#myGrid');
     if (!gridDiv) {
         console.error('Grid container element #myGrid not found.');
