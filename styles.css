@@ -40,6 +40,10 @@ body {
     display: none;
 }
 
+.subsection {
+    transition-delay: 0.5s;
+}
+
 .section.visible, .subsection.visible {
     opacity: 1;
     transform: translateY(0);
