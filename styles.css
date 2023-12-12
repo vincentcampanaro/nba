@@ -1,62 +1,63 @@
 body {
-    font-family: 'Georgia', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    margin-bottom: 60px;
     padding: 0;
-    background-color: #e5e1e1;
+    background-color: #f4f4f4;
 }
 
 .navbar {
-    background-color: #000;
-    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5em 0;
 }
 
 .navbar a {
-    float: left;
-    display: block;
     color: #fff;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 15px;
     text-decoration: none;
     cursor: pointer;
 }
 
-.section {
-    display: none;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
+.navbar a:hover {
+    background-color: #555;
 }
 
-.subsection {
-    margin-top: 20px;
-    border: 1px solid #ccc;
+.section, .subsection {
+    display: none;
+    margin: 20px auto;
     padding: 20px;
+    border: 1px solid #ddd;
+    max-width: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .image img {
-    max-width: 40%;
+    max-width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+header, footer {
+    background-color: #202020;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
 }
 
 header {
-    background-color: #000fff;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
     position: relative;
 }
 
 h1 {
-    color: rgb(255, 255, 255);
-    font-size: 40px;
+    margin: 0;
+    font-size: 2.5em;
 }
 
 footer {
-    background-color: #ff1900;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -65,5 +66,17 @@ footer {
 #myGrid {
     height: 500px;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    margin-bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar a {
+        padding: 10px 5px;
+    }
+
+    .section, .subsection {
+        width: 100%;
+        margin: 20px 0;
+    }
 }
