@@ -1,4 +1,4 @@
-# NBA Data Analysis
+# NBA Data Analysis 🏀
 
 ## Introduction
 This project involves extensive data analysis of NBA statistics, leveraging Python libraries and SQL for data manipulation and visualization. The analysis covers various aspects like player performance, trends, and efficiency, providing insights into the evolving dynamics of the NBA from 1996 to 2023.
