@@ -1,16 +1,16 @@
 function showSection(sectionId) {
-    // Hide all sections
     document.querySelectorAll('.section').forEach(section => {
-        section.style.display = 'none';
+        section.classList.remove('visible');
     });
 
-    // Show the selected section
-    const selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-    } else {
-        console.error('Section not found:', sectionId);
-    }
+    setTimeout(() => {
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.classList.add('visible');
+        } else {
+            console.error('Section not found:', sectionId);
+        }
+    }, 500);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         domLayout: 'autoHeight'
     };
 
-    const grid = new agGrid.Grid(gridDiv, gridOptions);
+    new agGrid.Grid(gridDiv, gridOptions);
 
     fetch('all_seasons.csv')
         .then(response => {
@@ -99,4 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Fetch error:', error);
         });
+
+    showSection('home');
 });
