@@ -10,109 +10,57 @@
             font-family: 'Georgia', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e5e1e1; 
+            background-color: #e5e1e1;
         }
 
-        .logo-container {
+        .navbar {
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
             text-align: center;
-            padding: 10px;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
         }
 
-        .nba-logo {
-            max-width: 20%; 
-            height: auto; 
+        .section {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .subsection {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        .image img {
+            max-width: 40%;
+            height: auto;
         }
 
         header {
-            background-color: #000fff; 
+            background-color: #000fff;
             color: #fff;
             padding: 1em;
             text-align: center;
             position: relative;
         }
 
-        .menu-icon {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .bar {
-            width: 30px;
-            height: 4px;
-            background-color: #fff;
-            margin: 6px 0;
-        }
-
         h1 {
-            color: rgb(255, 255, 255); 
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            margin: 20px;
-            padding-bottom: 50px; 
-        }
-
-        .left-side {
-            width: 100%; 
-            max-width: 600px; 
-            margin: 0 auto; 
-        }
-
-        .left-side p {
-            margin: 0;
-        }
-
-        .side-drawer {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            background-color: #f9f9f9;
-            padding-top: 60px;
-            box-shadow: -4px 0px 5px rgba(0, 0, 0, 0.1);
-            z-index: 2;
-        }
-
-        .side-nav {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .side-nav a {
-            padding: 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #333;
-            transition: background-color 0.3s;
-        }
-
-        .side-nav a:hover {
-            background-color: #ddd;
-        }
-
-        .side-drawer .close-icon {
-            font-size: 24px;
-            color: #333;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-        }
-
-        .side-drawer.open {
-            display: block;
+            color: rgb(255, 255, 255);
+            font-size: 40px;
         }
 
         footer {
-            background-color: #ff1900; 
+            background-color: #ff1900;
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -122,43 +70,183 @@
         }
     </style>
 </head>
-<body>
-    <div class="logo-container">
-        <img src="https://images.ctfassets.net/h8q6lxmb5akt/5qXnOINbPrHKXWa42m6NOa/421ab176b501f5bdae71290a8002545c/nba-logo_2x.png" alt="NBA Logo" class="nba-logo">
-    </div>
+<body onload="showSection('home')">
     <header>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <h1 style="font-size: 40px;">NBA Analytics</h1>
+        <h1>NBA Analytics</h1>
     </header>
-    <div class="content">
-        <div class="left-side">
-            <p style="font-size: 20px;">
-                The following analysis has been done on every NBA player for every season up until 2022. We inspected a variety of attributes that can contribute
-                to player performance as well as team performance. The original intent of this project was to find true odds of a player or team's performance.
-                Although still possible, the analysis is now geared towards identifying trends within the sport for predictive purposes. Please follow the navigation
-                on the side for more!
-            </p>
-            <div id="myGrid" class="ag-theme-quartz" style="height: 600px; width:100%;"></div>
+
+    <div class="navbar">
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('overview')">General Overview</a>
+        <a onclick="showSection('team-trends')">NBA Team Trends</a>
+        <a onclick="showSection('college-trends')">College Trends</a>
+        <a onclick="showSection('scoring-players')">Scoring Players</a>
+        <a onclick="showSection('performance')">Player Performance</a>
+    </div>
+
+    <!-- Home: Name Filter with Dataset -->
+    <div class="section" id="home">
+        <div class="image">
+            <img src="path_to_image_home.png" alt="Home Image">
+        </div>
+        <div class="text">
+            <h2>Home: Name Filter with Dataset</h2>
+            <p>Explanation about the analysis...</p>
+        </div>
+        <div id="myGrid" class="ag-theme-quartz" style="height: 600px; width:100%;"></div>
+    </div>
+    <!-- General Overview of Dataset -->
+    <div class="section" id="overview">
+        <div class="image">
+            <img src="path_to_image.png" alt="Image">
+        </div>
+        <div class="text">
+            <h2>1. General Overview of Dataset</h2>
+            <h3>a. Correlation Matrix</h3>
+            <p>Explanation about the correlation matrix...</p>
         </div>
     </div>
-    <div class="side-drawer" id="sideDrawer">
-        <div class="close-icon" onclick="toggleMenu()">X</div>
-        <nav class="side-nav">
-            <a href="index.html">Home</a>
-            <a href="player-analytics.html">Player Analytics</a>
-            <a href="team-analysis.html">Team Analysis</a>
-            <a href="comparative-analysis.html">Comparative Analysis</a>
-            <a href="data-insights.html">Data Insights</a>
-            <a href="about-methodology.html">About/Methodology</a>
-        </nav>
+
+    <!-- NBA Team Trends 1996-2023 -->
+    <div class="section" id="team-trends">
+        <!-- Player Height Trend -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>a. Player Height Trend</h3>
+                <p>Explanation about the player height trend...</p>
+            </div>
+        </div>
+        <!-- Player Age Trend -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>b. Player Age Trend</h3>
+                <p>Explanation about the player age trend...</p>
+            </div>
+        </div>
     </div>
+
+    <!-- College Trends 1996-2023 -->
+    <div class="section" id="college-trends">
+        <!-- Top 10 colleges with the Most Players in the NBA -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>a. Top 10 colleges with the Most Players in the NBA</h3>
+                <p>Explanation about the top colleges with the most NBA players...</p>
+            </div>
+        </div>
+        <!-- Top 10 Colleges with Highest Number of Lottery Picks -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>b. Top 10 Colleges with Highest Number of Lottery Picks</h3>
+                <p>Explanation about the top colleges with the highest number of lottery picks...</p>
+            </div>
+        </div>
+        <!-- Top 10 Colleges with Highest % of NBA Players as lottery picks -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>c. Top 10 Colleges with Highest % of NBA Players as lottery picks</h3>
+                <p>Explanation about the top colleges with the highest percentage of NBA players as lottery picks...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scoring Players 1996-2023 -->
+    <div class="section" id="scoring-players">
+        <!-- Highest Scoring Players -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>a. Highest Scoring Players</h3>
+                <p>Explanation about the highest scoring players...</p>
+            </div>
+        </div>
+        <!-- Players Ranked Top 10 in Scoring -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>b. Players Ranked Top 10 in Scoring</h3>
+                <p>Explanation about the players ranked top 10 in scoring...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Performance -->
+    <div class="section" id="performance">
+        <!-- Player Performance by Age -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>a. Player Performance by Age</h3>
+                <p>Explanation about the player performance by age...</p>
+            </div>
+        </div>
+        <!-- Efficiency Analysis on Player Size -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>b. Efficiency Analysis on Player Size</h3>
+                <p>Explanation about the efficiency analysis on player size...</p>
+            </div>
+        </div>
+        <!-- Assist Trends -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>c. Assist Trends</h3>
+                <p>Explanation about the assist trends...</p>
+            </div>
+        </div>
+        <!-- True Shooting Trends -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>d. True Shooting Trends</h3>
+                <p>Explanation about the true shooting trends...</p>
+            </div>
+        </div>
+        <!-- Top 5 Players by size -->
+        <div class="subsection">
+            <div class="image">
+                <img src="path_to_image.png" alt="Image">
+            </div>
+            <div class="text">
+                <h3>e. Top 5 Players by Size</h3>
+                <p>Explanation about the top 5 players by size...</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         &copy; 2023 NBA Analytics. All rights reserved.
     </footer>
     <script src="scripts.js"></script>
 </body>
+
 </html>
