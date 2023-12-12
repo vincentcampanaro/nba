@@ -14,12 +14,12 @@ body {
 }
 
 .navbar a {
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 10px 15px;
     text-decoration: none;
     cursor: pointer;
-    transition: color 0.3s, background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar a:hover {
@@ -32,12 +32,14 @@ body {
     border: 1px solid #ddd;
     max-width: 90%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
 }
 
 .section.visible, .subsection.visible {
+    display: block;
     opacity: 1;
     transform: translateY(0);
 }
@@ -58,7 +60,7 @@ body {
 
 header, footer {
     background-color: #202020;
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 1em;
 }
