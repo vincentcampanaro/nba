@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Analytics</title>
+    <style>
+        body {
+            font-family: 'Georgia', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e5e1e1; 
+        }
+
+        .logo-container {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .nba-logo {
+            max-width: 20%; 
+            height: auto; 
+        }
+
+        header {
+            background-color: #000fff; 
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            position: relative;
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .bar {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
+
+        h1 {
+            color: rgb(255, 255, 255); 
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            margin: 20px;
+            padding-bottom: 50px; 
+        }
+
+        .left-side {
+            width: 100%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
+
+        .left-side p {
+            margin: 0;
+        }
+
+        .side-drawer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #f9f9f9;
+            padding-top: 60px;
+            box-shadow: -4px 0px 5px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .side-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-nav a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .side-nav a:hover {
+            background-color: #ddd;
+        }
+
+        .side-drawer .close-icon {
+            font-size: 24px;
+            color: #333;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .side-drawer.open {
+            display: block;
+        }
+
+        footer {
+            background-color: #ff1900; 
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://images.ctfassets.net/h8q6lxmb5akt/5qXnOINbPrHKXWa42m6NOa/421ab176b501f5bdae71290a8002545c/nba-logo_2x.png" alt="NBA Logo" class="nba-logo">
+    </div>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <h1 style="font-size: 40px;">NBA Analytics</h1>
+    </header>
+    <div class="content">
+        <div class="left-side">
+            <p style="font-size: 20px;">
+                The following analysis has been done on every NBA player for every season up until 2022. We inspected a variety of attributes that can contribute
+                to player performance as well as team performance. The original intent of this project was to find true odds of a player or team's performance.
+                Although still possible, the analysis is now geared towards identifying trends within the sport for predictive purposes. Please follow the navigation
+                on the side for more!
+            </p>
+        </div>
+    </div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="close-icon" onclick="toggleMenu()">X</div>
+        <nav class="side-nav">
+            <a href="index.html">Home</a>
+            <a href="player-analytics.html">Player Analytics</a>
+            <a href="team-analysis.html">Team Analysis</a>
+            <a href="comparative-analysis.html">Comparative Analysis</a>
+            <a href="data-insights.html">Data Insights</a>
+            <a href="about-methodology.html">About/Methodology</a>
+        </nav>
+    </div>
+    <footer>
+        &copy; 2023 NBA Analytics. All rights reserved.
+    </footer>
+    
+    <script>
+    function toggleMenu() {
+        var sideDrawer = document.getElementById('sideDrawer');
+        sideDrawer.classList.toggle('open');
+    }
+    </script>
+</body>
+</html>
