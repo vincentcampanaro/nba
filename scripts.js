@@ -1,22 +1,23 @@
 function showSection(sectionId) {
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('visible');
-        section.style.display = 'none';
     });
 
     setTimeout(() => {
+        document.querySelectorAll('.subsection').forEach(subsection => {
+            subsection.classList.remove('visible');
+        });
+
         const selectedSection = document.getElementById(sectionId);
         if (selectedSection) {
             selectedSection.classList.add('visible');
-            selectedSection.style.display = 'block';
-            const subsections = selectedSection.querySelectorAll('.subsection');
-            subsections.forEach(subsection => {
+            Array.from(selectedSection.querySelectorAll('.subsection')).forEach(subsection => {
                 subsection.classList.add('visible');
             });
         } else {
             console.error('Section not found:', sectionId);
         }
-    }, 10);
+    }, 300);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
