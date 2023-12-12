@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
             sortable: true,
             filter: true
         },
+        pagination: true,
+        paginationPageSize: 20,
         domLayout: 'autoHeight'
     };
 
