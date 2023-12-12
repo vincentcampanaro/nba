@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const gridDiv = document.querySelector('#myGrid');
+    if (!gridDiv) {
+        console.error('Grid container element #myGrid not found.');
+        return;
+    }
     const gridOptions = {
         columnDefs: [
             { headerName: 'ID', field: 'id' },
@@ -35,36 +39,48 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     fetch('all_seasons.csv')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.text();
+        })
         .then(data => {
-            const gridData = data.split('\n').slice(1).map(row => {
-                const columns = row.split(',');
-                return {
-                    id: columns[0],
-                    player_name: columns[1],
-                    team_abbreviation: columns[2],
-                    age: columns[3],
-                    player_height: columns[4],
-                    player_weight: columns[5],
-                    college: columns[6],
-                    country: columns[7],
-                    draft_year: columns[8],
-                    draft_round: columns[9],
-                    draft_number: columns[10],
-                    gp: columns[11],
-                    pts: columns[12],
-                    reb: columns[13],
-                    ast: columns[14],
-                    net_rating: columns[15],
-                    oreb_pct: columns[16],
-                    dreb_pct: columns[17],
-                    usg_pct: columns[18],
-                    ts_pct: columns[19],
-                    ast_pct: columns[20],
-                    season: columns[21]
-                };
-            });
-            gridOptions.api.setRowData(gridData);
-            new agGrid.Grid(gridDiv, gridOptions);
+            try {
+                const gridData = data.split('\n').slice(1).map(row => {
+                    const columns = row.split(',');
+                    return {
+                        id: columns[0],
+                        player_name: columns[1],
+                        team_abbreviation: columns[2],
+                        age: columns[3],
+                        player_height: columns[4],
+                        player_weight: columns[5],
+                        college: columns[6],
+                        country: columns[7],
+                        draft_year: columns[8],
+                        draft_round: columns[9],
+                        draft_number: columns[10],
+                        gp: columns[11],
+                        pts: columns[12],
+                        reb: columns[13],
+                        ast: columns[14],
+                        net_rating: columns[15],
+                        oreb_pct: columns[16],
+                        dreb_pct: columns[17],
+                        usg_pct: columns[18],
+                        ts_pct: columns[19],
+                        ast_pct: columns[20],
+                        season: columns[21]
+                    };
+                });
+                gridOptions.api.setRowData(gridData);
+                new agGrid.Grid(gridDiv, gridOptions);
+            } catch (error) {
+                console.error('Error processing CSV data:', error);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
         });
 });
