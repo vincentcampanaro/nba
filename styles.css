@@ -25,6 +25,15 @@ body {
 .navbar a:hover {
     background-color: #555;
 }
+.text {
+    margin-top: 20px; 
+    border: 1px solid ddd;
+    padding: 15px;
+}
+
+.text p {
+    font-style: italic; /* Italicize the paragraphs */
+}
 
 .section, .subsection {
     margin: 20px auto;
